@@ -20,7 +20,9 @@ chrome.runtime.onMessage.addListener(
         });
         break;
       case "open_new_tab":
-        chrome.tabs.create({"url": request.url});
+        if ( request.url != '' ) {
+          chrome.tabs.create({"url": request.url});  
+        }
         break;
     }
   }
